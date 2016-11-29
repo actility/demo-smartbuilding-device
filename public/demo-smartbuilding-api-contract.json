@@ -1,0 +1,93 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ThingPark DX Smart City Demo API",
+    "description": "API to expose demo operations."
+  },
+  "host": "localhost:8080",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "Message",
+      "description": "Operations to send and read messages."
+    }
+  ],
+  "paths": {
+    "/messages": {
+      "post": {
+        "summary": "Message sending",
+        "description": "Sends a new message",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "message",
+            "description": "Message to send.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        ],
+        "tags": [
+          "Message"
+        ],
+        "responses": {
+          "201": {
+            "description": "Message sent successfully.",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Message retrieving",
+        "description": "Retrieves received messages",
+        "tags": [
+          "Message"
+        ],
+        "responses": {
+          "200": {
+            "description": "Messages retrieved successfully.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Message"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Message": {
+      "description": "Resource representing a message.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of the message.",
+          "enum": [ "TEMPERATURE", "TEXT", "COLOR" ]
+        },
+        "value": {
+          "type": "string",
+          "description": "Value of the message."
+        },
+        "status": {
+          "type": "string",
+          "description": "Optional indication about the message, e.g. 'SENT'."
+        }
+      }
+    }
+  }
+}
