@@ -24,8 +24,8 @@ sudo sed -i '/README/alcd_rotate=2' /boot/config.txt
 sudo sed -i '/# Seat defaults/axserver-command=X -nocursor -s 0 dpms' /etc/lightdm/lightdm.conf
 
 echo '#!/bin/bash
-cd /home/pi/demo-smartbuilding-device && node server.js' >> /home/pi/launcher
-chmod +x /home/pi/launcher
+cd /home/pi/demo-smartbuilding-device && node server.js' >> /home/pi/launcher.sh
+chmod +x /home/pi/launcher.sh
 
 mv /home/pi/.config/lxsession/LXDE-pi/autostart /home/pi/.config/lxsession/LXDE-pi/autostart.bak
 echo '@lxpanel --profile LXDE-pi
