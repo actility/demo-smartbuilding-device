@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # tested with raspbian ISO 2016-09-23-raspbian-jessie.img
-# assumes this action was already performed before running this install.sh script:
+# run the following command to perform install:
 # cd /home/pi && git clone https://github.com/actility/demo-smartbuilding-device && chmod +x demo-smartbuilding-device/install.sh && ./demo-smartbuilding-device/install.sh
 
 echo '***************************************'
@@ -16,7 +16,8 @@ sudo apt-get update
 
 echo 'setxkbmap fr' >> /home/pi/.profile
 
-sudo apt-get install -y nodejs npm
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 sudo sed -i '/README/alcd_rotate=2' /boot/config.txt
 
@@ -33,6 +34,6 @@ echo '@lxpanel --profile LXDE-pi
 @lxterminal -e "/home/pi/launcher.sh"
 @chromium-browser --start-fullscreen http://localhost:8080 ' >> /home/pi/.config/lxsession/LXDE-pi/autostart
 
-cd /home/pi/demo-smartbuilding-device && npm install
+cd /home/pi/demo-smartbuilding-device && npm install serialport && npm install
 
 sudo reboot
