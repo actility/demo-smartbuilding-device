@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "ThingPark DX Smart City Demo API",
+    "title": "LoRaWAN SmartBuilding Demo API",
     "description": "API to expose demo operations."
   },
   "host": "localhost:8080",
