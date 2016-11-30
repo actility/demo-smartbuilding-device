@@ -25,6 +25,7 @@ sudo sed -i '/# Seat defaults/axserver-command=X -nocursor -s 0 dpms' /etc/light
 
 echo '#!/bin/bash
 cd /home/pi/demo-smartbuilding-device && node server.js' >> /home/pi/launcher
+chmod +x /home/pi/launcher
 
 mv /home/pi/.config/lxsession/LXDE-pi/autostart /home/pi/.config/lxsession/LXDE-pi/autostart.bak
 echo '@lxpanel --profile LXDE-pi
