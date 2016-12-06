@@ -28,7 +28,10 @@ cd /home/pi/demo-smartbuilding-device && node server.js' >> /home/pi/launcher.sh
 chmod +x /home/pi/launcher.sh
 
 mv /home/pi/.config/lxsession/LXDE-pi/autostart /home/pi/.config/lxsession/LXDE-pi/autostart.bak
-echo '@lxpanel --profile LXDE-pi
+echo '@xset s noblank
+@xset s off
+@xset -dpms
+@lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
 @xscreensaver -no-splash
 @point-rpi
